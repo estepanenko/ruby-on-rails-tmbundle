@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>update_attributes!(:${1:attribute} =&gt; ${2:value})</string>
+	<string>update_attributes!(${1:attribute}: ${2:value})</string>
 	<key>name</key>
 	<string>update_attributes!</string>
 	<key>scope</key>

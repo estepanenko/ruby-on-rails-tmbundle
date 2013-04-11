@@ -9,7 +9,7 @@
 
 out = STDIN.read
 if match = out.match(/(.*)\.(.*?)\s*=\s*(.*)\s*/)
-	out = "#{match[1]}.update_attributes!(:${1:#{match[2]}} =&gt; ${2:#{match[3]}})$0"
+	out = "#{match[1]}.update_attributes!(${1:#{match[2]}}: ${2:#{match[3]}})$0"
 end
 
 print out</string>
