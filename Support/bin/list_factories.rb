@@ -8,19 +8,19 @@ module TextMate
     def run!(style='factory')
       if style == 'factory_girl'
         trigger = 'Facg'
-        prepend = 'FactoryGirl.${1:build}(:'
+        prepend = 'FactoryGirl.${1:create}(:'
         append = '$2)$0'
       else
         trigger = 'Fac'
         prepend = 'Factory(:'
         append = '$1)$0'
       end
-      
+
       search_term = TextMate::UI.request_string(:title => "Find Factory", :prompt => "Factory Name")
       all_names = collect_factory_names
-      
+
       matches = array_sorted_search(all_names, search_term)
-            
+
       if matches.empty?
         print trigger
         TextMate::UI.tool_tip "No factories found matching '#{search_term}'"
@@ -35,7 +35,7 @@ module TextMate
         end
       end
     end
-    
+
 
     def collect_factory_names
       names = []
@@ -46,7 +46,7 @@ module TextMate
       end
       return names
     end
-    
+
     def each_factory_line
       factory_files = Dir.glob(File.join(RailsPath.new.rails_root.to_s, "test", "factories", "**/**/*.rb")) + Dir.glob(File.join(RailsPath.new.rails_root.to_s, "spec", "factories", "**/**/*.rb"))
       seen_files = {}
@@ -59,5 +59,5 @@ module TextMate
         end
       end
     end
-  end    
+  end
 end
