@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -W0
+#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
 
 require File.join(File.dirname(__FILE__), '..', 'lib', 'search_utilities')
 require File.join(File.dirname(__FILE__), '..', 'lib', 'rails_bundle_tools')
