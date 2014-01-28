@@ -329,7 +329,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(Factory).define</string>
+			<string>(factory)(?!:)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
