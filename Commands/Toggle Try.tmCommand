@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
+
+input = STDIN.read
+
+
+if input =~ /^(.*?)try\(?\s*(.*?)\)?\z/
+  
+  result = input.match(/^(.*?)try\(?\s*(.*?)\)?\z/)
+  prepend = result[1].to_s.chomp('.')
+
+  if result[2].include?(',')
+    function, args = result[2].match(/(.*?),\s*(.*)/)[1, 2]
+  else
+    function = result[2]
+    args = nil
+  end
+  
+  function = eval(function).to_s
+
+  if function == '[]'
+    print "#{prepend}[#{args}]"
+  else
+    unless args.nil?
+      args = "(#{args}"
+      args &lt;&lt; ")" unless input[-1, 1] == ')' 
+    end
+    print "#{prepend}.#{function}#{args}"
+  end
+  
+else
+  
+  if input =~ /\[(.*)\]/
+    print input.sub(/\[(.*)\]/, '.try(:[], \1)')
+    exit 
+  end
+  
+  if input =~ /(.*?)\.(.*)/
+    match = input.match(/(.*?)\.(.*)/)
+    prepend, result = match[1,2]
+    prepend &lt;&lt; '.'
+  else
+    prepend = ''
+    result = input.clone
+  end
+
+  if result =~ /(.+?)[\s\(](.*)\)?/
+    function, args = result.match(/(.+?)[\s\(](.*)\)?/)[1,2]
+  else
+    function = result
+    args = nil
+  end
+  
+  output = "#{prepend}try(:#{[function, args].compact.join(', ')}"
+  output &lt;&lt; ")" unless input[-1, 1] == ')'
+  print output
+end</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^?</string>
+	<key>name</key>
+	<string>Toggle Try</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>uuid</key>
+	<string>169AD5C7-FAAD-43D5-91ED-BF5B6AA09819</string>
+</dict>
+</plist>
