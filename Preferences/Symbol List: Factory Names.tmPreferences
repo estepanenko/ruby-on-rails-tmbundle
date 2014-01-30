@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Factory Names</string>
+	<key>scope</key>
+	<string>meta.rails.factory.header</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>s/factory[(\s]+:(.*?)[,\s)].*/$1/</string>
+	</dict>
+	<key>uuid</key>
+	<string>1FED9D14-02FA-484C-B474-ED693A77394F</string>
+</dict>
+</plist>
