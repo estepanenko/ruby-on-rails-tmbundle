@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>${1:singular}_path(${2:id}${3:, :format =&gt; ${4::xml}})$0</string>
+	<key>name</key>
+	<string>update - singular_path(id) [PUT]</string>
+	<key>uuid</key>
+	<string>92D97BA4-5C24-4E27-96EC-BB6E6A6F2CFD</string>
+</dict>
+</plist>
