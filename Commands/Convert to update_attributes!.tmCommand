@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
+
+out = STDIN.read
+if match = out.match(/(.*)\.(.*?)\s*=\s*(.*)\s*/)
+	out = "#{match[1]}.update_attributes!(${1:#{match[2]}}: ${2:#{match[3]}})$0"
+end
+
+print out</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^@u</string>
+	<key>name</key>
+	<string>Convert to update_attributes!</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>replaceSelection</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>uuid</key>
+	<string>053332B5-11A8-4448-BCB4-CF4AA0BC0F49</string>
+</dict>
+</plist>
